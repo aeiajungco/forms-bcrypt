@@ -1,0 +1,88 @@
+<mat-card class="user-profile">
+    <mat-card-title>User Profile</mat-card-title>
+    <mat-card-content >
+      <form class="user-form data-form" (ngSubmit)="onSubmit(userForm)" #userForm="ngForm">
+        <mat-form-field>
+          <input 
+            matInput 
+            type="text" 
+            name="fName" 
+            ngModel
+            placeholder="First Name" 
+            required
+            minlength="2"
+            #fName="ngModel"/>
+  
+           <mat-error *ngIf="fName.errors?.required">First Name is required.</mat-error>
+           <mat-error *ngIf="fName.errors?.minlength">Please input at least 2 characters.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input 
+            matInput 
+            type="text" 
+            name="lName" 
+            ngModel
+            placeholder="Last Name" 
+            required
+            minlength="2"
+            #lName="ngModel"/>
+          
+          <mat-error *ngIf="lName.errors?.minlength">Please input at least 2 characters.</mat-error>
+          <mat-error *ngIf="lName.errors?.required">Last Name is required.</mat-error>
+        </mat-form-field>
+        
+        <mat-form-field>
+            <input 
+              matInput 
+              type="email" 
+              name="email" 
+              email 
+              ngModel
+              placeholder="Email" 
+              required
+              #email="ngModel"/>
+    
+              <mat-error *ngIf="email.errors?.email">Email is not valid.</mat-error>
+              <mat-error *ngIf="email.errors?.required">Email is required.</mat-error>
+          </mat-form-field>
+        
+        <mat-form-field>
+            <input 
+              matInput 
+              type="tel" 
+              name="num" 
+              ngModel
+              pattern="[0-9]+"
+              placeholder="Mobile Number (+63)" 
+              required
+              minlength="10"
+              maxlength="10"
+              #num="ngModel"/>
+    
+              <mat-error *ngIf="num.errors?.required">Mobile Number is required.</mat-error>
+              <mat-error *ngIf="num.errors?.minlength && !num.errors?.pattern">Mobile Number should be exactly 11 digits.</mat-error>
+              <mat-error *ngIf="num.errors?.pattern">Please input numbers only.</mat-error>
+          </mat-form-field>
+
+        <mat-form-field>
+          <input 
+            matInput 
+            type="password" 
+            name="password" 
+            ngModel
+            placeholder="Password" 
+            required
+            minlength="8"
+            #password="ngModel"/>
+  
+            <mat-error *ngIf="password.errors?.required">Password field is required.</mat-error>
+            <mat-error *ngIf="password.errors?.minlength">Password must be at least 8 characters.</mat-error>
+        </mat-form-field>
+        <br>
+        <button mat-raised-button color="primary" [disabled]="!userForm.valid">ENTER</button>
+      </form>
+  
+    </mat-card-content>
+  </mat-card>
+  

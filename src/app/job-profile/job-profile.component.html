@@ -1,0 +1,68 @@
+<mat-card class="job-profile">
+    <mat-card-title>Job Profile</mat-card-title>
+    <mat-card-content >
+      <form class="job-form data-form" [formGroup]="form" (ngSubmit)="onSubmit()" #userForm="ngForm">
+        <mat-form-field>
+          <input 
+          matInput 
+          type="text" 
+          formControlName="compName" 
+          placeholder="Company" />
+          
+          <mat-error *ngIf="compName.errors?.minlength">Please input at least 3 characters.</mat-error>
+          <mat-error *ngIf="compName.errors?.required">Company Name is required.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input 
+            matInput 
+            type="text" 
+            formControlName="dept" 
+            placeholder="Department" />
+          
+          <mat-error *ngIf="dept.errors?.minlength">Please input at least 3 characters</mat-error>
+          <mat-error *ngIf="dept.errors?.required">Department Name is required.</mat-error>
+        </mat-form-field>
+        
+        <mat-form-field>
+            <input 
+              matInput 
+              type="text" 
+              formControlName="job" 
+              placeholder="Job Title" />
+            
+            <mat-error *ngIf="job.errors?.minlength">Please input at least 3 characters.</mat-error>
+            <mat-error *ngIf="job.errors?.required">Job Title is required.</mat-error>
+          </mat-form-field>
+
+          <mat-form-field>
+            <input 
+              matInput 
+              type="text" 
+              formControlName="empID" 
+              placeholder="Employee ID" />
+
+              
+              <mat-error *ngIf="empID.errors?.pattern">Please input numbers only.</mat-error>
+              <mat-error *ngIf="empID.errors?.minlength && !empID.errors?.pattern">Please input at least 7 digits.</mat-error>
+              <mat-error *ngIf="empID.errors?.required">Employee ID is required.</mat-error>
+          </mat-form-field>
+
+          <mat-form-field>
+            <input 
+              matInput 
+              type="text" 
+              formControlName="sup" 
+              placeholder="Supervisor's Name" />
+
+              <mat-error *ngIf="sup.errors?.minlength">Please input at least 3 characters.</mat-error>
+             <mat-error *ngIf="sup.errors?.required">Supervisor's Name is required.</mat-error>
+          </mat-form-field>
+
+        <br>
+        <button mat-raised-button color="primary" [disabled]="!form.valid">ENTER</button>
+      </form>
+  
+    </mat-card-content>
+  </mat-card>
+  

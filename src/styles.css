@@ -1,1 +1,34 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: rgb(245, 245, 245);
+}
+
+.user-form {
+  display: flex;
+  flex-direction: column;
+}
+
+table {
+    margin: auto;
+}
+
+td {
+  max-width: 450px;
+  width: 450px;
+  height: 450px;
+  word-wrap: break-word;
+  padding: 70px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.job-form {
+  display: flex;
+  flex-direction: column;
+}
+
+
+hr {
+  width: 1300px;
+}
